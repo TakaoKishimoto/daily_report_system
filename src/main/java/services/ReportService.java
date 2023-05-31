@@ -12,25 +12,23 @@ import models.Report;
 import models.validators.ReportValidator;
 
 /**
- * 日報テーブルの操作にかかわる処理を行うクラス
+ * 日報テーブルの操作に関わる処理を行うクラス
  */
 public class ReportService extends ServiceBase {
 
     /**
-     * 指定した従業員が作成した日報データを、指定されたページ数の一覧画面に表示する
-     * 分取得し、ReportViewのリストで返却する
-     * @param employee
-     * @param page
+     * 指定した従業員が作成した日報データを、指定されたページ数の一覧画面に表示する分取得しReportViewのリストで返却する
+     * @param employee 従業員
+     * @param page ページ数
      * @return 一覧画面に表示するデータのリスト
      */
     public List<ReportView> getMinePerPage(EmployeeView employee, int page) {
 
-        List<Report> reports = em.createNamedQuery(JpaConst.Q_REP_COUNT_ALL_MINE, Report.class)
+        List<Report> reports = em.createNamedQuery(JpaConst.Q_REP_GET_ALL_MINE, Report.class)
                 .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(employee))
                 .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
                 .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();
-
         return ReportConverter.toViewList(reports);
     }
 
@@ -59,7 +57,6 @@ public class ReportService extends ServiceBase {
                 .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
                 .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();
-
         return ReportConverter.toViewList(reports);
     }
 
@@ -96,7 +93,7 @@ public class ReportService extends ServiceBase {
             createInternal(rv);
         }
 
-        // バリデーションで発生したエラーを返却(エラーがなければ0件の空リスト)
+        //バリデーションで発生したエラーを返却（エラーがなければ0件の空リスト）
         return errors;
     }
 
@@ -156,7 +153,5 @@ public class ReportService extends ServiceBase {
         em.getTransaction().commit();
 
     }
-
-
 
 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- *  日報情報について画面の入力値・出力地を扱うViewモデル
+ * 日報情報について画面の入力値・出力値を扱うViewモデル
  *
  */
 @Getter //全てのクラスフィールドについてgetterを自動生成する(Lombok)
@@ -19,7 +19,7 @@ import lombok.Setter;
 public class ReportView {
 
     /**
-     *  id
+     * id
      */
     private Integer id;
 

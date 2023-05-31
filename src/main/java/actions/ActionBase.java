@@ -54,6 +54,7 @@ public abstract class ActionBase {
      *  @throws IOException
      */
     protected void invoke() throws ServletException, IOException {
+
         Method commandMethod;
         try {
 

@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * 日報データのDTO モデル
+ * 日報データのDTOモデル
  *
  */
 @Table(name = JpaConst.TABLE_REP)
@@ -47,8 +47,9 @@ import lombok.Setter;
 @AllArgsConstructor //全てのクラスフィールドを引数にもつ引数ありコンストラクタを自動生成する(Lombok)
 @Entity
 public class Report {
+
     /**
-     *  id
+     * id
      */
     @Id
     @Column(name = JpaConst.REP_COL_ID)
@@ -56,7 +57,7 @@ public class Report {
     private Integer id;
 
     /**
-     *  日報を登録した従業員
+     * 日報を登録した従業員
      */
     @ManyToOne
     @JoinColumn(name = JpaConst.REP_COL_EMP, nullable = false)

@@ -6,7 +6,7 @@ import java.util.List;
 import models.Report;
 
 /**
- * ViewモデルのインスタンスからDTOモデルのインスタンスを作成する
+ * 日報データのDTOモデル⇔Viewモデルの変換を行うクラス
  *
  */
 public class ReportConverter {
@@ -78,4 +78,5 @@ public class ReportConverter {
         r.setUpdatedAt(rv.getUpdatedAt());
 
     }
+
 }
